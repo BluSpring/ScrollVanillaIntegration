@@ -1,0 +1,28 @@
+{
+    "schemaVersion": 1,
+    "id": "scroll_vanilla_integration",
+    "version": "${version}",
+    "name": "ScrollVanillaIntegration",
+    "description": "A mod that integrates DockyardMC's Scroll library with base Minecraft.",
+    "authors": [
+        "BluSpring",
+        "LukynkaCZE (Scroll Dev)"
+    ],
+    "contact": {
+        "repo": "https://github.com/BluSpring/ScrollVanillaIntegration"
+    },
+    "license": "MIT",
+    "icon": "assets/scrollvanillaintegration/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "xyz.bluspring.scrollvanillaintegration.ScrollVanillaIntegration"
+        ]
+    },
+    "mixins": [
+    ],
+    "depends": {
+        "fabricloader": ">=0.14",
+        "minecraft": ">=1.20"
+    }
+}
