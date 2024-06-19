@@ -14,12 +14,8 @@ base {
 repositories {
     mavenCentral()
     maven {
-        name = "GitHubPackages"
-        url = uri("https://maven.pkg.github.com/DockyardMC/Scroll")
-        credentials {
-            username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_USER")
-            password = project.findProperty("gpr.token") ?: System.getenv("GITHUB_TOKEN")
-        }
+        name = "devOS"
+        url = uri("https://mvn.devos.one/releases")
     }
 }
 
