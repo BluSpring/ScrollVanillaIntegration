@@ -14,11 +14,11 @@ private val GSON = GsonBuilder()
     .create()
 
 fun ScrollComponent.toVanilla(): Component {
-    return ComponentSerialization.CODEC.parse(JsonOps.INSTANCE, JsonParser.parseString(this.toJson())).getOrThrow(::JsonParseException)
+    return ComponentSerialization.FLAT_CODEC.parse(JsonOps.INSTANCE, JsonParser.parseString(this.toJson())).getOrThrow(::JsonParseException)
 }
 
 fun Component.toScroll(): ScrollComponent {
-    val json = ComponentSerialization.CODEC.encodeStart(JsonOps.INSTANCE, this).getOrThrow(::JsonParseException)
+    val json = ComponentSerialization.FLAT_CODEC.encodeStart(JsonOps.INSTANCE, this).getOrThrow(::JsonParseException)
 
     if (json.isJsonPrimitive) {
         return ScrollComponent(text = json.asString)
