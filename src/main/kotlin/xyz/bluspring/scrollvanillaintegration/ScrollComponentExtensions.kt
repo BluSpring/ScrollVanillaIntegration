@@ -18,5 +18,11 @@ fun ScrollComponent.toVanilla(): Component {
 }
 
 fun Component.toScroll(): ScrollComponent {
-    return JsonToComponentSerializer.serialize(GSON.toJson(ComponentSerialization.CODEC.encodeStart(JsonOps.INSTANCE, this).getOrThrow(::JsonParseException)))
+    val json = ComponentSerialization.CODEC.encodeStart(JsonOps.INSTANCE, this).getOrThrow(::JsonParseException)
+
+    if (json.isJsonPrimitive) {
+        return ScrollComponent(text = json.asString)
+    }
+
+    return JsonToComponentSerializer.serialize(GSON.toJson(json))
 }
